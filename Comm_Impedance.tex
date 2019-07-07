@@ -35,7 +35,7 @@ The arduino responds to the command of the computer through serial communication
 \section{Transmission Protocol for the Primary message}
 The primary message will be the initial message before validation procedures.
 \subsection{From Computer to Arduino}
-The computer can send the following :
+The computer can send the following (\# is 32-bit integer):
 \begin{itemize}
 \item SETFR:\# = This commands the arduino to set the frequency to the value closest to \# which is a long
 \item CGSTP:\# = This commands the arduino to change the frequency steps by \# which is a long
@@ -51,4 +51,26 @@ The arduino can send the following:
 \item ERROR:$<>$ = This sends an error to the computer
 \item SDDAT:\#:c =  This sends the data to the computer as \# = ADC output of the $c^{th}$ ADC
 \end{itemize}
+\section{Verification Protocol}
+The next communication will be a set of verification bits.
+\subsection{Transmission of input message}
+The input message will be of the form ``ST$<$MESSAGE$>$ab{\textbackslash}r{\textbackslash}n''. Here,
+\begin{itemize}
+\item ST is put as the `start' bits.
+\item $<$MESSAGE$>$ is the placeholder for the message sent.
+\item `a' is a char which is a byte-wise XOR of the characters in the message.
+\item `b' is (Sum of integer representations of char is MESSAGE) mod $2^8$
+\item ``{\textbackslash}r{\textbackslash}n'' is put as the `stop' bits
+\end{itemize}
+\subsection{Receiving of the message}
+On recieving the message, the following is performed :
+\begin{enumerate}
+\item If the first two chars are ST, continue. Else send ERROR:
+\item Compare `a' with the `a' that is computed using the message. If same, continue.Else send ERROR:
+\item Compare `b' with the `b' that is computed using the message. If same, continue.Else send ERROR:
+\item Check is the last two chars. If they are {\textbackslash}r{\textbackslash}n, continue.Else send ERROR:
+\item Send `CNF' to the transmitter.
+\end{enumerate}
+\subsection{Confirming that message has been received}
+If `CNF' is received, then the sending was successful. Otherwise, resend the message.
 \end{document}

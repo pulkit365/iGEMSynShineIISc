@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.25)  7 JUL 2019 01:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.11.25)  7 JUL 2019 12:05
 entering extended mode
 **./Comm_Impedance.tex
 (Comm_Impedance.tex
@@ -487,28 +487,30 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
  [1
 
 {C:/Users/SamarthH/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(Comm_Impedance.aux) ) 
+[2] (Comm_Impedance.aux) ) 
 Here is how much of TeX's memory you used:
- 12628 strings out of 492970
- 227449 string characters out of 3125261
+ 12629 strings out of 492970
+ 227650 string characters out of 3125261
  272081 words of memory out of 3000000
- 16431 multiletter control sequences out of 15000+200000
+ 16432 multiletter control sequences out of 15000+200000
  540709 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  47i,6n,65p,344b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/SamarthH/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/SamarthH/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/SamarthH/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users
-/SamarthH/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
-8.pfb><C:/Users/SamarthH/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr10.pfb><C:/Users/SamarthH/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/SamarthH/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/SamarthH/AppData/L
-ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Comm_Impedance.pdf (1 page, 92555 bytes).
+<C:/Users/SamarthH/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/SamarthH/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/SamarthH/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/U
+sers/SamarthH/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmmi8.pfb><C:/Users/SamarthH/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr10.pfb><C:/Users/SamarthH/AppData/Local/Programs/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/SamarthH/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/SamarthH/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/
+SamarthH/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb>
+Output written on Comm_Impedance.pdf (2 pages, 104743 bytes).
 PDF statistics:
- 38 PDF objects out of 1000 (max. 8388607)
+ 45 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
