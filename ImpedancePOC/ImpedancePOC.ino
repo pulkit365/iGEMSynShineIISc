@@ -1,10 +1,15 @@
+int init_adc()
+{ return 0;}
+int init_sine()
+{ return 0;}
+
 void error(String &str)
 {
   return;
 }
-void set_gain(long &n)
+int set_gain(long &n)
 {
-  return;
+  return 0;
 }
 String convString32Bit(long &n){//convert long to 4 char sequence
   char *a=(char*)&n;
@@ -16,11 +21,11 @@ long convLong(String &str){   //convert 4 char sequence to long
    long* p= (long*)num;
    return *p;
 }
-void set_val(long &n)
+int set_val(long &n)
 {
-  return;
+  return 0;
 }
-void set_sine(bool val)
+int set_sine(bool val)
 {
   return;
 }
@@ -28,11 +33,11 @@ long read_val_adc(int n)
 {
   return 0;
 }
-void mult_steps(long &n)
+int mult_steps(long &n)
 {
   return;
 }
-void change_freq_steps(long &n)
+int change_freq_steps(long &n)
 {
   return;
 }
@@ -192,10 +197,16 @@ void listener() //Needs to be actively called so as to check for messages.
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+  init_adc();
+  init_sine();
+  while(!Serial)
+  {}
+  
   
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+  listener();
+  delay(1);
 }
