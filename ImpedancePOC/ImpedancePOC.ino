@@ -1,40 +1,67 @@
-void error(String str)
+void error(String &str)
 {
   return;
 }
-void set_gain(long n)
+void set_gain(long &n)
 {
   return;
 }
-String convString32Bit(long n){//convert long to 4 char sequence
+String convString32Bit(long &n){//convert long to 4 char sequence
   char *a=(char*)&n;
   return (String(a[3])+String(a[2])+String(a[1])+String(a[0]));
   
 }
-long convLong(String str){   //convert 4 char sequence to long
+long convLong(String &str){   //convert 4 char sequence to long
    char num[]={str[3],str[2],str[1],str[0]};
    long* p= (long*)num;
    return *p;
 }
-void set_val(long n)
+void set_val(long &n)
 {
   return;
 }
-void set_sine(long n)
+void set_sine(bool val)
 {
   return;
 }
 long read_val_adc(int n)
 {
-  return;
+  return 0;
 }
-void mult_steps(long n)
+void mult_steps(long &n)
 {
   return;
 }
-void change_freq_steps(long n)
+void change_freq_steps(long &n)
 {
   return;
+}
+void sendMsg(String &str)
+{
+  char a=0,b=0;
+  int n=str.length();
+  for(int i=0;i<n;i++)
+  { 
+    a^=str.charAt(i);
+    b+=str.charAt(i);
+  }
+  while(true)
+  {
+    Serial.println("ST"+str+String(a)+String(b));
+    delay(10);
+    if(Serial.available())
+    {
+      if(Serial.read()=='C')
+        if(Serial.read()=='N')
+          if(Serial.read()=='F')
+            if(Serial.read()==a)
+              break; 
+    }
+    while(Serial.available())
+    {
+      Serial.read();
+    }
+  }
 }
 void check_readings()
 { 
@@ -44,21 +71,26 @@ void check_readings()
     a0=read_val_adc(i);
     delay(1);
     a0=read_val_adc(i);
-    Serial.print("SDDAT:"+convString32Bit(a0)+":"+((char)('0'+i)));
+    sendMsg("SDDAT:"+convString32Bit(a0)+":"+((char)('0'+i)));
   }
   
   return;
 }
-void msgRecieved(String msg){         //Runs if listener detects a valid message packet
+void msgRecieved(String &msg){         //Runs if listener detects a valid message packet
    String fault="Message is faulty";
    String type=msg.substring(0,5);
+   long num;
+   {
+    String str=msg.substring(6,10);
+    num=convLong(str);
+   }
    if(type=="SETGN")
    {
-      set_gain(convLong(msg.substring(6,10)));
+      set_gain(num);
       return;
    }else if(type=="SETFR")
    {
-      set_val(convLong(msg.substring(6,10)));
+      set_val(num);
       return;
    }else if(type=="CHKFR")
    {
@@ -77,11 +109,11 @@ void msgRecieved(String msg){         //Runs if listener detects a valid message
       return;
    }else if(type=="CGSTP")
    {
-      change_freq_steps(convLong(msg.substring(6,10)));
+      change_freq_steps(num);
       return;
    }else if(type=="MLSTP")
    {
-      mult_steps(convLong(msg.substring(6,10)));
+      mult_steps(num);
       return;
    }else
    {
@@ -140,8 +172,9 @@ void listener() //Needs to be actively called so as to check for messages.
         }
        if((str.charAt(n-1)==b)&&(str.charAt(n-2)==a))
        {
-        Serial.print("CNF"+String(a));//send confirmation
-        msgRecieved(str.substring(0,n-2));//calls function to start interpretting the message
+        Serial.print("CNF"+String(a));
+        str=str.substring(0,n-2);//send confirmation
+        msgRecieved(str);//calls function to start interpretting the message
         return;
        }else{
         serialListenError();
