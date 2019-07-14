@@ -27,7 +27,7 @@ int set_val(long &n)
 }
 int set_sine(bool val)
 {
-  return;
+  return 0;
 }
 long read_val_adc(int n)
 {
@@ -35,11 +35,11 @@ long read_val_adc(int n)
 }
 int mult_steps(long &n)
 {
-  return;
+  return 0;
 }
 int change_freq_steps(long &n)
 {
-  return;
+  return 0;
 }
 void sendMsg(String &str)
 {
@@ -76,7 +76,7 @@ void check_readings()
     a0=read_val_adc(i);
     delay(1);
     a0=read_val_adc(i);
-    sendMsg("SDDAT:"+convString32Bit(a0)+":"+((char)('0'+i)));
+    sendMsg("SDDAT:"+convString32Bit(a0)+":"+String((char)('0'+i)));
   }
   
   return;
